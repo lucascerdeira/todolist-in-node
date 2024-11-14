@@ -1,0 +1,28 @@
+{
+  "name": "todolist-in-node",
+  "version": "1.0.0",
+  "description": "Desafio mentoria DevIndev",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lucascerdeira/todolist-in-node.git"
+  },
+  "author": "Lucas",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lucascerdeira/todolist-in-node/issues"
+  },
+  "homepage": "https://github.com/lucascerdeira/todolist-in-node#readme",
+  "dependencies": {
+    "express": "^4.21.1",
+    "mongoose": "^8.8.1",
+    "todolist-in-node": "file:"
+  },
+  "devDependencies": {
+    "dotenv": "^16.4.5",
+    "nodemon": "^3.1.7"
+  }
+}
