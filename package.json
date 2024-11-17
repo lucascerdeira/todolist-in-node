@@ -4,7 +4,7 @@
   "description": "Desafio mentoria DevIndev",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js"
+    "start": "nodemon --env-file .env index.js"
   },
   "repository": {
     "type": "git",
@@ -17,9 +17,14 @@
   },
   "homepage": "https://github.com/lucascerdeira/todolist-in-node#readme",
   "dependencies": {
+    "@prisma/client": "^5.22.0",
     "express": "^4.21.1",
     "mongoose": "^8.8.1",
-    "todolist-in-node": "file:"
+    "pg": "^8.13.1",
+    "prisma": "^5.22.0",
+    "todolist-in-node": "file:",
+    "typeorm": "^0.3.20",
+    "uuid": "^11.0.3"
   },
   "devDependencies": {
     "dotenv": "^16.4.5",
