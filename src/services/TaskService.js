@@ -3,10 +3,6 @@ const prisma = new PrismaClient();
 
 class TaskService {
   static async createTask({ title, description }) {
-    
-    if (!title) {
-      throw new Error('O campo titulo é obrigatório.');
-    }
 
     try {
       return await prisma.tasks.create({

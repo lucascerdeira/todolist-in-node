@@ -4,20 +4,25 @@ class TaskController {
   static async createTask(req, res) {
     try {
       const { title, description } = req.body;
+      if (!title) {
+         return res.status(400).json({ error: 'O campo titulo é obrigatório!'});
+      }
+
       const task = await TaskService.createTask({ title, description });
-      res.status(201).json(task);
+      return res.status(201).json(task);
+      
     } catch (error) {
       console.log(`Erro ao criar task: ${error}`)
-      res.status(500).json({ error: error.message });
+      return res.status(500).json({ error: error.message });
     }
   }
 
   static async getAllTasks(req, res) {
     try {
       const tasks = await TaskService.getAllTasks();
-      res.status(200).json(tasks);
+      return res.status(200).json(tasks);
     } catch (error) {
-      res.status(500).json({ error: error.message });
+      return res.status(500).json({ error: error.message });
     }
   }
 
@@ -26,9 +31,9 @@ class TaskController {
       const { id } = req.params;
       const { title, description } = req.body;
       const task = await TaskService.updateTask(id, { title, description });
-      res.status(200).json(task);
+     return  res.status(200).json(task);
     } catch (error) {
-      res.status(500).json({ error: error.message });
+      return res.status(500).json({ error: error.message });
     }
   }
 
@@ -37,9 +42,9 @@ class TaskController {
       const { id } = req.params;
       const { checked } = req.body;
       const task = await TaskService.updateTaskStatus(id, checked);
-      res.status(200).json(task);
+      return res.status(200).json(task);
     } catch (error) {
-      res.status(500).json({ error: error.message });
+      return res.status(500).json({ error: error.message });
     }
   }
 
@@ -47,9 +52,9 @@ class TaskController {
     try {
       const { id } = req.params;
       await TaskService.deleteTask(id);
-      res.status(204).send();
+      return res.status(200).send();
     } catch (error) {
-      res.status(500).json({ error: error.message });
+      return res.status(500).json({ error: error.message });
     }
   }
 }
